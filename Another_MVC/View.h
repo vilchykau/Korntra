@@ -14,10 +14,11 @@ public:
 	void handleEvent() override;
 private:
 	void initAddButton(HWND hWnd);
+	void initTextIn(HWND hWdn);
 	IController* cont;
 
 public:
 	const static int H_ADD_BUTTON = 1001;
-	const static int H_ADD_TEXT_IN = 1002;
+	const static int H_ADD_TEXT_BOX = 1002;
 };
 
