@@ -4,5 +4,5 @@
 class IController {
 public:
 	static LRESULT CALLBACK commonWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-	virtual LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) = 0;
+	virtual LRESULT CALLBACK callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) = 0;
 };

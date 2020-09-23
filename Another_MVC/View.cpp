@@ -1,44 +1,62 @@
 #include "View.h"
 
 #include "WindowClass.h"
+#include "Model.h"
 
 void View::initWindow(HINSTANCE hInst, std::wstring& windowName)
 {
-	HWND hWnd = CreateWindowW(WindowClass::getInstance(hInst)->getClass(), windowName.c_str(), 
+    mainHwnd = CreateWindowW(WindowClass::getInstance(hInst)->getClass(), windowName.c_str(),
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInst, cont);
 
-	ShowWindow(hWnd, 1);
-	UpdateWindow(hWnd);
+	ShowWindow(mainHwnd, 1);
+	UpdateWindow(mainHwnd);
 }
 
 void View::initElements(HWND hWnd)
 {
-	initAddButton(hWnd);
-    initTextIn(hWnd);
+	initFirstPFButton(hWnd);
+    initFirstInTextbox(hWnd);
+    initFirstArrayLabel(hWnd);
+    initFirstPBButton(hWnd);
+    initFirstPOPFButton(hWnd);
+	initFirstPOPBButton(hWnd);
+
+    handleEvent();
 }
 
 void View::handleEvent()
 {	
+    refreshArrayLable(mainHwnd);
 }
 
-void View::initAddButton(HWND hWnd)
+HWND View::getMainHwnd()
+{
+    return mainHwnd;
+}
+
+void View::setModel(Model* model)
+{
+    this->model = model;
+}
+
+void View::initFirstPFButton(HWND hWnd)
 {
     CreateWindow(
         L"BUTTON",  
-        L"Add",     
+        L"Push forward",     
         WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON, 
         10,         
         10,         
         100,        
         30,        
         hWnd,
-        (HMENU) H_ADD_BUTTON,      
+        (HMENU) ID_FIRST_PF_BUTTON,      
         (HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
         cont);     
 }
 
-void View::initTextIn(HWND hWnd)
+void View::initFirstInTextbox(HWND hWnd)
 {
     CreateWindow(
         L"EDIT",
@@ -49,9 +67,71 @@ void View::initTextIn(HWND hWnd)
         140, 
         30, 
         hWnd, 
-        (HMENU) H_ADD_TEXT_BOX,
+        (HMENU) ID_FIRST_NEW_ELEMENT_TEXTBOX,
         (HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
         cont);
+}
+
+void View::initFirstArrayLabel(HWND hWnd)
+{
+    CreateWindow(L"static", L"",
+        WS_CHILD | WS_VISIBLE | WS_TABSTOP,
+        10, 200, 400, 50,
+        hWnd, (HMENU)ID_FIRST_ARRAY_LABEL,
+        (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE), cont);
+}
+
+void View::initFirstPBButton(HWND hWnd)
+{
+	CreateWindow(
+		L"BUTTON",
+		L"Push backward",
+		WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
+		270,
+		10,
+		100,
+		30,
+		hWnd,
+		(HMENU)ID_FIRST_PB_BUTTON,
+		(HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
+		cont);
+}
+
+void View::initFirstPOPFButton(HWND hWnd)
+{
+	CreateWindow(
+		L"BUTTON",
+		L"Pop forward",
+		WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
+		10,
+		50,
+		100,
+		30,
+		hWnd,
+		(HMENU)ID_FIRST_POPF_BUTTON,
+		(HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
+		cont);
+}
+
+void View::initFirstPOPBButton(HWND hWnd)
+{
+	CreateWindow(
+		L"BUTTON",
+		L"Pop back",
+		WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
+		270,
+		50,
+		100,
+		30,
+		hWnd,
+		(HMENU)ID_FIRST_POPB_BUTTON,
+		(HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
+		cont);
+}
+
+void View::refreshArrayLable(HWND hWnd)
+{
+    SetDlgItemText(hWnd, ID_FIRST_ARRAY_LABEL, model->getArrayLabel().c_str());
 }
 
 void View::setController(IController* cont)

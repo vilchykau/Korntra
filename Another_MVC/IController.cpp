@@ -18,7 +18,7 @@ LRESULT IController::commonWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
     }
 
     if (con) {
-        con->WndProc(hWnd, message, wParam, lParam);
+        con->callback(hWnd, message, wParam, lParam);
     }
 
     return DefWindowProc(hWnd, message, wParam, lParam);

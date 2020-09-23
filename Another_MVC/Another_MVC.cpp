@@ -6,6 +6,7 @@
 
 #include "Controller.h"
 #include "View.h"
+#include "Model.h"
 
 #define MAX_LOADSTRING 100
 
@@ -26,18 +27,21 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     View view;
     Controller cont;
+    Model model;
 
     std::wstring title = L"some title";
+
     cont.setView(&view);
+    cont.setModel(&model);
+    model.addSubscriber(&view);
     view.setController(&cont);
+    view.setModel(&model);
+
     view.initWindow(hInstance, title);
 
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_ANOTHERMVC));
-
     MSG msg;
-
-    // Цикл основного сообщения:
     while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
@@ -49,9 +53,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     return (int) msg.wParam;
 }
-
-
-
 
 
 // Обработчик сообщений для окна "О программе".

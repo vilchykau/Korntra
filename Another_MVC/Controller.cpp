@@ -1,6 +1,7 @@
 #include "Controller.h"
 
-LRESULT Controller::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+
+LRESULT Controller::callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
@@ -10,9 +11,19 @@ LRESULT Controller::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
         
         switch (wmId)
         {
-        case View::H_ADD_BUTTON:
-            onAddButtonClick(hWnd, message, wParam, lParam);
+        case View::ID_FIRST_PF_BUTTON:
+            onFirstPFButtonClick(hWnd, message, wParam, lParam);
             break;
+        case View::ID_FIRST_PB_BUTTON:
+            onFirstPBButtonClick(hWnd, message, wParam, lParam);
+            break;
+        case View::ID_FIRST_POPF_BUTTON:
+            onFirstPopFButtonClick(hWnd, message, wParam, lParam);
+            break;
+		case View::ID_FIRST_POPB_BUTTON:
+			onFirstPopBButtonClick(hWnd, message, wParam, lParam);
+			break;
+
         default:
             break;
         }
@@ -35,7 +46,33 @@ void Controller::setView(View* view)
 	this->view = view;
 }
 
-void Controller::onAddButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+void Controller::setModel(Model* model)
 {
-    MessageBox(hWnd, L"Add button has been clicked.", L"Message", MB_OK);
+    this->model = model;
+}
+
+void Controller::onFirstPFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    const size_t MAX_TEXT_SIZE = 100;
+    WCHAR text[MAX_TEXT_SIZE];
+    GetDlgItemText(hWnd, View::ID_FIRST_NEW_ELEMENT_TEXTBOX, text, MAX_TEXT_SIZE);
+    model->firstPushFront(std::wstring(text));
+}
+
+void Controller::onFirstPBButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	const size_t MAX_TEXT_SIZE = 100;
+	WCHAR text[MAX_TEXT_SIZE];
+	GetDlgItemText(hWnd, View::ID_FIRST_NEW_ELEMENT_TEXTBOX, text, MAX_TEXT_SIZE);
+	model->firstPushBack(std::wstring(text));
+}
+
+void Controller::onFirstPopFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    model->firstPopFront();
+}
+
+void Controller::onFirstPopBButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    model->firstPopBack();
 }
