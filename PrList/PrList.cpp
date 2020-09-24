@@ -6,7 +6,6 @@
 #include "List.h"
 #include "Printer.h"
 #include "Deque.h"
-#include "ForAll.h"
 
 int main()
 {
@@ -23,14 +22,11 @@ int main()
 	deq.pushBack(55);
 	deq.pushFront(33);
 
-	ForAll<int> forAll([](int& element) {
-		element *= element;
-		}
-	);
+
 
 	Printer<int> printer(std::cout);
 	deq.accept(printer);
 
-
+	std::cout << "\n"; system("pause");
 	return 0;
 }

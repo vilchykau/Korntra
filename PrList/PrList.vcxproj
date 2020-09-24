@@ -24,6 +24,7 @@
     <ProjectGuid>{dce8b831-45e7-4160-a72f-0b6dafb1f445}</ProjectGuid>
     <RootNamespace>PrList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Containers</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +141,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Deque.cpp" />
-    <ClCompile Include="ForAll.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="PrList.cpp" />
@@ -149,11 +149,9 @@
   <ItemGroup>
     <ClInclude Include="ContainerVisior.h" />
     <ClInclude Include="Deque.h" />
-    <ClInclude Include="ForAll.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Printer.h" />
-    <ClInclude Include="Container.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

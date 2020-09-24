@@ -3,7 +3,7 @@
 #include "List.h"
 
 template<typename T>
-class Deque : protected List<T> , public Container<T>
+class Deque : protected List<T>
 {
 public:
 	Deque(): List<T>(){}

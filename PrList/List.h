@@ -6,7 +6,7 @@
 #include <initializer_list>
 
 #include "Iterator.h"
-#include "Container.h"
+#include "ContainerVisior.h"
 
 template<typename T>
 class List;
@@ -23,7 +23,7 @@ private:
 };
 
 template<typename T>
-class List : public Container<T>
+class List
 {
 public:
 	friend class ListIterator<T>;
@@ -185,7 +185,7 @@ public:
 		std::swap(start, other.start);
 	}
 
-	void accept(ContainerVisitor<T>& visitor) override {
+	void accept(ContainerVisitor<T>& visitor) {
 		visitor.visitList(*this);
 	}
 
