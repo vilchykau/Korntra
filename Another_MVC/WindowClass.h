@@ -14,6 +14,7 @@ private:
 
 public:
 	WCHAR* getClass();
+	static LRESULT CALLBACK commonWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 private:
 	WindowClass(HINSTANCE hInst);
 	WCHAR szWindowClass[MAX_LOADSTRING];

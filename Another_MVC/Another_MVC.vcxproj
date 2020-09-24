@@ -155,7 +155,6 @@
   <ItemGroup>
     <ClCompile Include="Another_MVC.cpp" />
     <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="IController.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="View.cpp" />
     <ClCompile Include="WindowClass.cpp" />

@@ -77,9 +77,6 @@
     <ClCompile Include="View.cpp">
       <Filter>Исходные файлы\mvc</Filter>
     </ClCompile>
-    <ClCompile Include="IController.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="WindowClass.cpp">
       <Filter>Исходные файлы\mvc</Filter>
     </ClCompile>
