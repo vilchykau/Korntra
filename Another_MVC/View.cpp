@@ -76,7 +76,7 @@ void View::initFirstArrayLabel(HWND hWnd)
 {
     CreateWindow(L"static", L"",
         WS_CHILD | WS_VISIBLE | WS_TABSTOP,
-        10, 200, 400, 50,
+        10, 100, 360, 50,
         hWnd, (HMENU)ID_FIRST_ARRAY_LABEL,
         (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE), cont);
 }
