@@ -1,10 +1,14 @@
 #include "Controller.h"
 
 
-LRESULT Controller::callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+BOOL Controller::callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+	MessageBox(hWnd, L"Dialog has been started.", L"Info", MB_OK);
     switch (message)
     {
+    case WM_INITDIALOG:
+        MessageBox(hWnd, L"Dialog has been started.", L"Info", MB_OK);
+        break;
     case WM_COMMAND:
     {
         int wmId = LOWORD(wParam);
@@ -24,6 +28,11 @@ LRESULT Controller::callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 			onFirstPopBButtonClick(hWnd, message, wParam, lParam);
 			break;
 
+        case IDCANCEL:
+			EndDialog(hWnd, 0);
+			PostQuitMessage(0);
+            break;
+
         default:
             break;
         }
@@ -34,6 +43,7 @@ LRESULT Controller::callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
         view->initElements(hWnd);
         break;
     case WM_DESTROY:
+        EndDialog(hWnd, 0);
         PostQuitMessage(0);
         break;
     }

@@ -27,9 +27,9 @@ private:
 
 	void refreshArrayLable(HWND hWnd);
 
-	IController* cont;
-	Model* model;
-	HWND mainHwnd;
+	IController* cont = nullptr;
+	Model* model = nullptr;
+	HWND mainHwnd = NULL;
 
 public:
 	const static int ID_FIRST_PF_BUTTON = 1001;

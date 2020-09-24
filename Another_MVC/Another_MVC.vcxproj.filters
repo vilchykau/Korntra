@@ -28,17 +28,11 @@
     <Filter Include="Файлы заголовков\mvc\intfs">
       <UniqueIdentifier>{d3a7aca6-db38-42b4-b0c6-8a2686d436b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\winapi config">
+      <UniqueIdentifier>{9d5fede6-000b-4a0f-92bf-10bdffc0af7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Another_MVC.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -62,6 +56,18 @@
     </ClInclude>
     <ClInclude Include="IPublisher.h">
       <Filter>Файлы заголовков\mvc\intfs</Filter>
+    </ClInclude>
+    <ClInclude Include="MVC.h">
+      <Filter>Файлы заголовков\mvc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Файлы заголовков\winapi config</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Файлы заголовков\winapi config</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Файлы заголовков\winapi config</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

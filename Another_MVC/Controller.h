@@ -8,7 +8,7 @@
 class Controller : public IController
 {
 public:
-	LRESULT CALLBACK callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override;
+	BOOL CALLBACK callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) override;
 	void setView(View* view);
 	void setModel(Model* model);
 private:
@@ -17,7 +17,7 @@ private:
 	void onFirstPopFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	void onFirstPopBButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-    View* view;
-	Model* model;
+    View* view = nullptr;
+	Model* model = nullptr;
 };
 

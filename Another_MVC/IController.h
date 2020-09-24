@@ -3,5 +3,5 @@
 
 class IController {
 public:
-	virtual LRESULT CALLBACK callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) = 0;
+	virtual BOOL CALLBACK callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) = 0;
 };

@@ -3,31 +3,36 @@
 #include "WindowClass.h"
 #include "Model.h"
 
+#include "resource.h"
+
 void View::initWindow(HINSTANCE hInst, std::wstring& windowName)
 {
+	/*
     mainHwnd = CreateWindowW(WindowClass::getInstance(hInst)->getClass(), windowName.c_str(),
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInst, cont);
 
 	ShowWindow(mainHwnd, 1);
 	UpdateWindow(mainHwnd);
+	*/
+	DialogBoxParam(hInst, MAKEINTRESOURCE(IDD_DIALOG1), NULL, WindowClass::commonWndProc, (LPARAM)cont);
 }
 
 void View::initElements(HWND hWnd)
 {
-	initFirstPFButton(hWnd);
+	/*initFirstPFButton(hWnd);
     initFirstInTextbox(hWnd);
     initFirstArrayLabel(hWnd);
     initFirstPBButton(hWnd);
     initFirstPOPFButton(hWnd);
 	initFirstPOPBButton(hWnd);
 
-    handleEvent();
+    handleEvent();*/
 }
 
 void View::handleEvent()
 {	
-    refreshArrayLable(mainHwnd);
+    //refreshArrayLable(mainHwnd);
 }
 
 HWND View::getMainHwnd()
