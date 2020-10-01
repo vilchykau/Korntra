@@ -7,18 +7,21 @@
 
 int main()
 {
-    List<double> list;
-
-    list.push_front(5);
-    list.push_front(35);
-	list.push_back(233);
-    list.pop_front();
-	List<double> list2(list);
-
+    List<int> list;
     
+	list.push_back(5);
+	list.push_back(6);
+	list.push_back(7);
+	list.push_back(8);
+    list.push_front(4);
+    //list.push_front(35);
+	//list.push_back(233);
+    //list.pop_front();
+	List<int> list2(list);
 
-    for (int i = 0; i < list2.size(); ++i) {
-        std::cout << list2[i] << "  ";
+    auto it = list2.getConstIterator();
+    while (it.hasNext()) {
+        std::cout << it.getNext() << "  ";
     }
 }
 

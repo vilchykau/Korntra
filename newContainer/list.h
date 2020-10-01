@@ -39,17 +39,13 @@ public:
 
 	List(): head(0), tail(0), cap(0), a(nullptr){}
 
-	List(std::initializer_list<T>& init_list) {
+	List(std::initializer_list<T> init_list) :List(){
 		for (const auto& e : init_list) {
 			push_back(e);
 		}
 	}
 
-	List(const List& other) {
-		head = 0;
-		tail = other.size()-1;
-		cap = other.cap;
-		a = new T[cap];
+	List(const List& other):List() {
 		auto it = other.getConstIterator();
 		while (it.hasNext()) {
 			push_back(it.getNext());
@@ -168,6 +164,11 @@ public:
 		return a[i];
 	}
 
+	const T& operator[](int i) const {
+		i = (tail + i) % cap;
+		return a[i];
+	}
+
 	int size() const {
 		if (head > tail) {
 			return head - tail;
@@ -217,7 +218,7 @@ inline bool ListIterator<T>::hasNext() const {
 
 template<typename T>
 inline T& ListIterator<T>::getNext() {
-	T& element = list->a[pos];
+	T& element = list->operator[](pos);
 	++pos;
 	return element;
 }
@@ -234,7 +235,7 @@ inline bool ConstListIterator<T>::hasNext() const {
 
 template<typename T>
 inline const T& ConstListIterator<T>::getNext() {
-	T& element = list->a[pos];
+	const T& element = list->operator[](pos);
 	++pos;
 	return element;
 }
