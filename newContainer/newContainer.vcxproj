@@ -143,7 +143,9 @@
     <ClCompile Include="newContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IVisitor.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="ToStringVisitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

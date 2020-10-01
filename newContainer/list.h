@@ -3,6 +3,8 @@
 #include <iostream>
 #include <initializer_list>
 
+#include "IVisitor.h"
+
 //#define IS_LOG
 
 template<typename T> 
@@ -176,6 +178,10 @@ public:
 		else {
 			return cap - (tail - head);
 		}
+	}
+
+	void visit(IVisitor<T>& visitor) {
+		visitor.visit(*this);
 	}
 private:
 	void initNew(const T& new_element) {

@@ -2,26 +2,24 @@
 //
 
 #include <iostream>
+#include <iostream>
 
 #include "list.h"
+#include "ToStringVisitor.h"
 
 int main()
 {
     List<int> list;
+    std::stringstream ss;
     
 	list.push_back(5);
 	list.push_back(6);
 	list.push_back(7);
 	list.push_back(8);
     list.push_front(4);
-    //list.push_front(35);
-	//list.push_back(233);
-    //list.pop_front();
-	List<int> list2(list);
-
-    auto it = list2.getConstIterator();
-    while (it.hasNext()) {
-        std::cout << it.getNext() << "  ";
-    }
+    
+    ToStringVisitor<int, std::string, std::stringstream> visitor("  ");
+    list.visit(visitor);
+    std::cout << "%  " << visitor.getString() << "   %" << std::endl;
 }
 
