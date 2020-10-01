@@ -1,10 +1,10 @@
 #pragma once
-#include "IPublisher.h"
+#include "IModel.h"
 
 #include <string>
 #include <list>
 
-class Model : public IPublisher
+class Model : public IModel
 {
 public:
 	Model(){};

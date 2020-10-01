@@ -2,18 +2,18 @@
 #include "framework.h"
 #include <string>
 
-#include "ISubscriber.h"
+#include "IView.h"
 #include "IController.h"
 
 class Model;
 
-class View : public ISubscriber
+class View : public IView
 {
 public:
 	void setController(IController* cont);
 	void initWindow(HINSTANCE hInst, std::wstring& windowName);
 	void initElements(HWND hWnd);
-	void handleEvent() override;
+	void refreshView() override;
 	HWND getMainHwnd();
 	void setModel(Model* model);
 private:

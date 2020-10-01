@@ -8,25 +8,25 @@
 void Model::firstPushFront(const std::wstring& element)
 {
 	list.push_front(element);
-	publish();
+	refreshView();
 }
 
 void Model::firstPushBack(const std::wstring& element)
 {
 	list.push_back(element);
-	publish();
+	refreshView();
 }
 
 void Model::firstPopBack()
 {
 	list.pop_back();
-	publish();
+	refreshView();
 }
 
 void Model::firstPopFront()
 {
 	list.pop_front();
-	publish();
+	refreshView();
 }
 
 std::wstring Model::getArrayLabel()

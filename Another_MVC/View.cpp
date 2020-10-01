@@ -22,10 +22,10 @@ void View::initElements(HWND hWnd)
     initFirstPOPFButton(hWnd);
 	initFirstPOPBButton(hWnd);
 
-    handleEvent();
+    refreshView();
 }
 
-void View::handleEvent()
+void View::refreshView()
 {	
     refreshArrayLable(mainHwnd);
 }

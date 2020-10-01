@@ -33,7 +33,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     cont.setView(&view);
     cont.setModel(&model);
-    model.addSubscriber(&view);
+    model.addView(&view);
     view.setController(&cont);
     view.setModel(&model);
 

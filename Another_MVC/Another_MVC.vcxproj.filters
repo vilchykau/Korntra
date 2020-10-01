@@ -54,13 +54,13 @@
     <ClInclude Include="WindowClass.h">
       <Filter>Файлы заголовков\mvc</Filter>
     </ClInclude>
-    <ClInclude Include="ISubscriber.h">
-      <Filter>Файлы заголовков\mvc\intfs</Filter>
-    </ClInclude>
     <ClInclude Include="IController.h">
       <Filter>Файлы заголовков\mvc\intfs</Filter>
     </ClInclude>
-    <ClInclude Include="IPublisher.h">
+    <ClInclude Include="IView.h">
+      <Filter>Файлы заголовков\mvc\intfs</Filter>
+    </ClInclude>
+    <ClInclude Include="IModel.h">
       <Filter>Файлы заголовков\mvc\intfs</Filter>
     </ClInclude>
   </ItemGroup>
