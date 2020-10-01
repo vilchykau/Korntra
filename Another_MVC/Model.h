@@ -2,7 +2,7 @@
 #include "IModel.h"
 
 #include <string>
-#include <list>
+#include "list.h"
 
 class Model : public IModel
 {
@@ -12,8 +12,11 @@ public:
 	void firstPushBack(const std::wstring& element);
 	void firstPopBack();
 	void firstPopFront();
+
 	std::wstring getArrayLabel();
+	std::wstring getTop();
+	std::wstring getBack();
 private:
-	std::list<std::wstring> list;
+	List<std::wstring> list;
 };
 

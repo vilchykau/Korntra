@@ -21,6 +21,7 @@ void View::initElements(HWND hWnd)
     initFirstPBButton(hWnd);
     initFirstPOPFButton(hWnd);
 	initFirstPOPBButton(hWnd);
+	initForwardLabel(hWnd);
 
     refreshView();
 }
@@ -28,6 +29,7 @@ void View::initElements(HWND hWnd)
 void View::refreshView()
 {	
     refreshArrayLable(mainHwnd);
+	refreshTopLabel(mainHwnd);
 }
 
 HWND View::getMainHwnd()
@@ -129,9 +131,27 @@ void View::initFirstPOPBButton(HWND hWnd)
 		cont);
 }
 
+void View::initForwardLabel(HWND hWnd)
+{
+	CreateWindow(L"static", L"",
+		WS_CHILD | WS_VISIBLE | WS_TABSTOP,
+		10, 170, 50, 16,
+		hWnd, (HMENU)ID_FOWARD_LABEL,
+		(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE), cont);
+}
+
+void View::initBackwardLabel(HWND hWnd)
+{
+}
+
 void View::refreshArrayLable(HWND hWnd)
 {
     SetDlgItemText(hWnd, ID_FIRST_ARRAY_LABEL, model->getArrayLabel().c_str());
+}
+
+void View::refreshTopLabel(HWND hWnd)
+{
+	SetDlgItemText(hWnd, ID_FOWARD_LABEL, (L"Top: " + model->getTop()).c_str());
 }
 
 void View::setController(IController* cont)

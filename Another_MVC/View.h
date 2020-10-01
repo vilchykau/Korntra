@@ -24,20 +24,25 @@ private:
 	void initFirstPBButton(HWND hWnd);
 	void initFirstPOPFButton(HWND hWnd);
 	void initFirstPOPBButton(HWND hWnd);
+	void initForwardLabel(HWND hWnd);
+	void initBackwardLabel(HWND hWnd);
 
 	void refreshArrayLable(HWND hWnd);
+	void refreshTopLabel(HWND hWnd);
 
 	IController* cont;
 	Model* model;
 	HWND mainHwnd;
 
 public:
-	const static int ID_FIRST_PF_BUTTON = 1001;
-	const static int ID_FIRST_NEW_ELEMENT_TEXTBOX = 1002;
-	const static int ID_FIRST_ARRAY_LABEL = 1003;
-	const static int ID_FIRST_PB_BUTTON = 1004;
-	const static int ID_FIRST_POPF_BUTTON = 1005;
-	const static int ID_FIRST_POPB_BUTTON = 1006;
+	const static int ID_FIRST_PF_BUTTON = 1000 + __LINE__;
+	const static int ID_FIRST_NEW_ELEMENT_TEXTBOX = 1000 + __LINE__;
+	const static int ID_FIRST_ARRAY_LABEL = 1000 + __LINE__;
+	const static int ID_FIRST_PB_BUTTON = 1000 + __LINE__;
+	const static int ID_FIRST_POPF_BUTTON = 1000 + __LINE__;
+	const static int ID_FIRST_POPB_BUTTON = 1000 + __LINE__;
+	const static int ID_FOWARD_LABEL = 1000 + __LINE__;
+	const static int ID_BACKWARD_LABEL = 1000 + __LINE__;
 
 };
 

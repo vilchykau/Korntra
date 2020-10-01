@@ -63,6 +63,15 @@
     <ClInclude Include="IModel.h">
       <Filter>Файлы заголовков\mvc\intfs</Filter>
     </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>Файлы заголовков\container</Filter>
+    </ClInclude>
+    <ClInclude Include="IVisitor.h">
+      <Filter>Файлы заголовков\container</Filter>
+    </ClInclude>
+    <ClInclude Include="ToStringVisitor.h">
+      <Filter>Файлы заголовков\container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Another_MVC.cpp">
@@ -79,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="WindowClass.cpp">
       <Filter>Исходные файлы\mvc</Filter>
+    </ClCompile>
+    <ClCompile Include="list.cpp">
+      <Filter>Исходные файлы\container</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

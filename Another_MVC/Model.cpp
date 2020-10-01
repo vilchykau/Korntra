@@ -4,6 +4,8 @@
 #include <iterator>
 #include <iostream>
 
+#include "ToStringVisitor.h"
+
 
 void Model::firstPushFront(const std::wstring& element)
 {
@@ -31,9 +33,17 @@ void Model::firstPopFront()
 
 std::wstring Model::getArrayLabel()
 {
-	std::wstringstream ss;;
-	for (const auto& el : list) {
-		ss << el << "  ";
-	}
-	return ss.str().c_str();
+	ToStringVisitor<std::wstring, std::wstring, std::wstringstream> visitor(L";  ");
+	list.visit(visitor);
+	return visitor.getString();
+}
+
+std::wstring Model::getTop()
+{
+	return list.size() ? list.front() : L"!Empty!";
+}
+
+std::wstring Model::getBack()
+{
+	return list.size() ? list.back() : L"!Empty!";
 }

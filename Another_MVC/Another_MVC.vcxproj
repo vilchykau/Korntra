@@ -146,15 +146,19 @@
     <ClInclude Include="IController.h" />
     <ClInclude Include="IModel.h" />
     <ClInclude Include="IView.h" />
+    <ClInclude Include="IVisitor.h" />
+    <ClInclude Include="list.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ToStringVisitor.h" />
     <ClInclude Include="View.h" />
     <ClInclude Include="WindowClass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Another_MVC.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="list.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="View.cpp" />
     <ClCompile Include="WindowClass.cpp" />
