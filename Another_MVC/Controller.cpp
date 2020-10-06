@@ -1,6 +1,5 @@
 #include "Controller.h"
 
-
 LRESULT Controller::callback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -51,20 +50,28 @@ void Controller::setModel(Model* model)
     this->model = model;
 }
 
-void Controller::onFirstPFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    const size_t MAX_TEXT_SIZE = 100;
-    WCHAR text[MAX_TEXT_SIZE];
-    GetDlgItemText(hWnd, View::ID_FIRST_NEW_ELEMENT_TEXTBOX, text, MAX_TEXT_SIZE);
-    model->firstPushFront(std::wstring(text));
-}
-
-void Controller::onFirstPBButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+std::wstring Controller::readString(HWND hWnd, int id)
 {
 	const size_t MAX_TEXT_SIZE = 100;
 	WCHAR text[MAX_TEXT_SIZE];
 	GetDlgItemText(hWnd, View::ID_FIRST_NEW_ELEMENT_TEXTBOX, text, MAX_TEXT_SIZE);
-	model->firstPushBack(std::wstring(text));
+    return std::wstring(text);
+}
+
+void Controller::onFirstPFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    const std::wstring data = readString(hWnd, View::ID_FIRST_NEW_ELEMENT_TEXTBOX);
+    if (!data.empty()) {
+        model->firstPushFront(data);
+    }
+}
+
+void Controller::onFirstPBButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	const std::wstring data = readString(hWnd, View::ID_FIRST_NEW_ELEMENT_TEXTBOX);
+	if (!data.empty()) {
+		model->firstPushBack(data);
+	}
 }
 
 void Controller::onFirstPopFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)

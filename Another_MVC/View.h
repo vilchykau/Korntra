@@ -12,7 +12,7 @@ class View : public IView
 public:
 	void setController(IController* cont);
 	void initWindow(HINSTANCE hInst, std::wstring& windowName);
-	void initElements(HWND hWnd);
+	void initElements(HWND hWnd) override;
 	void refreshView() override;
 	HWND getMainHwnd();
 	void setModel(Model* model);

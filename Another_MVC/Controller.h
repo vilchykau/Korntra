@@ -12,6 +12,7 @@ public:
 	void setView(View* view);
 	void setModel(Model* model);
 private:
+	std::wstring readString(HWND hWnd, int id);
 	void onFirstPFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	void onFirstPBButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	void onFirstPopFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

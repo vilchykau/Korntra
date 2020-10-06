@@ -135,7 +135,7 @@ void View::initForwardLabel(HWND hWnd)
 {
 	CreateWindow(L"static", L"",
 		WS_CHILD | WS_VISIBLE | WS_TABSTOP,
-		10, 170, 50, 16,
+		10, 170, 80, 16,
 		hWnd, (HMENU)ID_FOWARD_LABEL,
 		(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE), cont);
 }

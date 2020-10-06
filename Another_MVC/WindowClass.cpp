@@ -2,6 +2,7 @@
 #include "IController.h"
 #include "Resource.h"
 
+
 WindowClass* WindowClass::inst = nullptr;
 
 WindowClass* WindowClass::getInstance(HINSTANCE hInst)
@@ -42,10 +43,9 @@ WindowClass::WindowClass(HINSTANCE hInst)
 
 LRESULT WindowClass::commonWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	IController* con;
-
+    IController* con;
 	if (message == WM_NCCREATE) {
-		con = static_cast<IController*>(reinterpret_cast<CREATESTRUCT*>(lParam)->lpCreateParams);
+        con = static_cast<IController*>(reinterpret_cast<CREATESTRUCT*>(lParam)->lpCreateParams);
 		SetLastError(0);
 		if (!SetWindowLongPtr(hWnd, GWL_USERDATA, reinterpret_cast<LONG_PTR>(con))) {
 			if (GetLastError() != 0) {
@@ -54,13 +54,11 @@ LRESULT WindowClass::commonWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
 		}
 	}
 	else {
-		con = reinterpret_cast<IController*>(GetWindowLongPtr(hWnd, GWL_USERDATA));
+        con = reinterpret_cast<IController*>(GetWindowLongPtr(hWnd, GWL_USERDATA));
 	}
-
 	if (con) {
 		con->callback(hWnd, message, wParam, lParam);
 	}
-
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
