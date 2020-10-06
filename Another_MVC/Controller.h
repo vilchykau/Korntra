@@ -18,7 +18,7 @@ private:
 	void onFirstPopFButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	void onFirstPopBButtonClick(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
-    View* view;
-	Model* model;
+    View* view = nullptr;
+	Model* model = nullptr;
 };
 
